@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { SearchState } from "../models/SearchState.interface";
+import PokemonResult from "./PokemonResult";
 
 export class PokemonSearch extends Component<{}, SearchState> {
   pokemonRef: React.RefObject<HTMLInputElement>;
@@ -43,19 +44,7 @@ export class PokemonSearch extends Component<{}, SearchState> {
     if (error) {
       resultMarkup = <p>Pokemon not found, please try again</p>;
     } else if (this.state.pokemon) {
-      resultMarkup = (
-        <div>
-          <img
-            src={pokemon.imageUrl}
-            alt="pokemon"
-            className="pokemon-image"
-          ></img>
-          <p>
-            {pokemon.name} has {pokemon.numberOfAbilities} abilities and{" "}
-            {pokemon.baseExperience} base experience points.
-          </p>
-        </div>
-      );
+      resultMarkup = <PokemonResult {...pokemon} />;
     }
 
     return (
