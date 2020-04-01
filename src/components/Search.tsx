@@ -92,7 +92,7 @@ class Search extends Component<{}, SearchState> {
     this.setState({ fetching: true });
 
     // Call the API.
-    this.pokemonService.getPokemon(inputValue)
+    this.pokemonService.getPokemon(inputValue.toLowerCase())
 
       // Set the component state to the requested pokemon.
       .then(pokemon => this.setState({ error: false, fetching: false, pokemon: pokemon }))
