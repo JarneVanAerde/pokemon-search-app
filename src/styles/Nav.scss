@@ -1,0 +1,23 @@
+nav {
+    margin-top: 20px;
+
+    a {
+        margin-right: 24px;
+        padding: 8px;
+    
+        text-decoration: none;
+        text-transform: uppercase;
+        color: black;
+        border-radius: 0.25rem;
+        transition: .2s;
+        
+        &:hover {
+            background-color: lightgrey;
+        }
+    
+        &:active {
+            background-color: darken(lightgrey, 7.5%);
+        }
+    }
+}
+

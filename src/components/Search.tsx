@@ -1,12 +1,12 @@
 import React, { Component, ReactElement } from "react";
 import { SearchState } from "../models/SearchState.interface";
-import PokemonResult from "./PokemonResult";
+import Result from "./Result";
 import { PokemonService } from "../services/PokemonService";
 
 /**
  * This component is used to handle the search functionality of the application.
  */
-class PokemonSearch extends Component<{}, SearchState> {
+class Search extends Component<{}, SearchState> {
   
   /**
    * An instance of the pokemon service that is needed to call the API.
@@ -60,7 +60,7 @@ class PokemonSearch extends Component<{}, SearchState> {
     if (error) {
       return <p>Pokemon not found, please try again</p>;
     } else if (this.state.pokemon) {
-      return <PokemonResult {...pokemon} />;
+      return <Result {...pokemon} />;
     } else {
       return <p>Type something, click search, and watch what happens!</p>;
     }
@@ -86,4 +86,4 @@ class PokemonSearch extends Component<{}, SearchState> {
   };
 }
 
-export default PokemonSearch;
+export default Search;

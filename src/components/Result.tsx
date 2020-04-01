@@ -6,7 +6,7 @@ import { Pokemon } from "../models/Pokemon.interface";
  *
  * @see PokemonSearch
  */
-class PokemonResult extends Component<Pokemon> {
+class Result extends Component<Pokemon> {
     
   /**
    * Renders the component.
@@ -26,4 +26,4 @@ class PokemonResult extends Component<Pokemon> {
   }
 }
 
-export default PokemonResult;
+export default Result;
