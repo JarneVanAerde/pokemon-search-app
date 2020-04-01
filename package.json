@@ -17,11 +17,13 @@
     "react-scripts": "3.4.1",
     "typescript": "^3.7.5",
     "express": "4.17.1",
-    "express-favicon": "2.0.1"
+    "express-favicon": "2.0.1",
+    "enzyme": "3.11.0",
+    "enzyme-adapter-react-16": "^1.15.2"
   },
   "scripts": {
-    "start": "node server.js",    
-    "serve": "react-scripts start",    
+    "start": "node server.js",
+    "serve": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
