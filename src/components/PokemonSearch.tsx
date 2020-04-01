@@ -6,7 +6,7 @@ import { PokemonService } from "../services/PokemonService";
 /**
  * This component is used to handle the search functionality of the application.
  */
-export class PokemonSearch extends Component<{}, SearchState> {
+class PokemonSearch extends Component<{}, SearchState> {
   
   /**
    * An instance of the pokemon service that is needed to call the API.

@@ -4,7 +4,7 @@ import { Link } from "react-router-dom"
 /**
  * This component will render the navigation for the application.
  */
-export class Nav extends Component {
+class Nav extends Component {
 
     /**
      * Renders the component.

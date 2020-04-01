@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, ReactElement } from "react";
 import { Pokemon } from "../models/Pokemon.interface";
 
 /**
@@ -6,12 +6,12 @@ import { Pokemon } from "../models/Pokemon.interface";
  *
  * @see PokemonSearch
  */
-export class PokemonResult extends Component<Pokemon> {
+class PokemonResult extends Component<Pokemon> {
     
   /**
    * Renders the component.
    */
-  render() {
+  public render(): ReactElement {
     const { name, numberOfAbilities, baseExperience, imageUrl } = this.props;
 
     return (
