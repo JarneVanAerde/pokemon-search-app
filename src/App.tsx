@@ -1,25 +1,18 @@
-import React, { Component, ReactElement } from "react";
-import PokemonSearch from "./components/PokemonSearch";
-import "./App.scss";
-import UserInfo from "./components/UserInfo";
+import React from 'react';
+import { BrowserRouter as Router } from 'react-router-dom';
+import './App.scss';
+import Nav from './components/shared/Nav';
+import Routes from './configs/Routes';
 
-/**
- * The main component.
- * This is the entry component for the whole application.
- */
-export class App extends Component {
-
-   /**
-   * Renders the application.
-   */
-  public render(): ReactElement {
-    return (
-      <div className="App">
-        <UserInfo name="John Doe" numberOfPokemons={5} />
-        <PokemonSearch />
+const App = () => {
+  return (
+    <Router>
+      <div className="container">
+        <Nav />
+        <Routes />
       </div>
-    );
-  }
+    </Router>
+  );
 }
 
 export default App;
