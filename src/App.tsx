@@ -5,7 +5,7 @@ import "./App.scss";
 function App() {
   return (
     <div className="App">
-      <PokemonSearch name="John Doe" />
+      <PokemonSearch name="John Doe" numberOfPokemons={5} />
     </div>
   );
 }
