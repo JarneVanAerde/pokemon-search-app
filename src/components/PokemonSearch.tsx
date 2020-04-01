@@ -1,18 +1,17 @@
 import React, { Component, ReactElement } from "react";
 import { SearchState } from "../models/SearchState.interface";
 import PokemonResult from "./PokemonResult";
-import { Inject } from "react.di";
 import { PokemonService } from "../services/PokemonService";
 
 /**
  * This component is used to handle the search functionality of the application.
  */
 export class PokemonSearch extends Component<{}, SearchState> {
+  
   /**
-   * Injects an instance of the PokemonService into this component.
+   * An instance of the pokemon service that is needed to call the API.
    */
-  @Inject
-  pokemonService: PokemonService;
+  private readonly pokemonService: PokemonService = new PokemonService();
 
   /**
    * The reference to the input field used for the search.
@@ -53,6 +52,7 @@ export class PokemonSearch extends Component<{}, SearchState> {
    * @returns The corresponding HTML based on the component state.
    */
   private determineMarkup(): ReactElement {
+    
     // Deconstruct the state of this component.
     const { error, pokemon } = this.state;
 

@@ -1,4 +1,3 @@
-import { Injectable } from 'react.di';
 import { Pokemon } from '../models/Pokemon.interface';
 
 /**
@@ -7,7 +6,6 @@ import { Pokemon } from '../models/Pokemon.interface';
  * 
  * @see https://pokeapi.co/
  */
-@Injectable
 export class PokemonService {
 
     /**
