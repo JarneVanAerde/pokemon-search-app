@@ -1,11 +1,10 @@
 import React, { Component } from "react";
-import { User } from "../models/User.interface";
 import { SearchState } from "../models/SearchState.interface";
 
-export class PokemonSearch extends Component<User, SearchState> {
+export class PokemonSearch extends Component<{}, SearchState> {
   pokemonRef: React.RefObject<HTMLInputElement>;
 
-  constructor(props: User) {
+  constructor(props: any) {
     super(props);
     this.state = {
       error: false,
@@ -38,23 +37,22 @@ export class PokemonSearch extends Component<User, SearchState> {
   };
 
   render() {
-    const { name: userName, numberOfPokemons } = this.props;
-    const {
-      error,
-      pokemon
-    } = this.state;
+    const { error, pokemon } = this.state;
 
     let resultMarkup;
-
     if (error) {
       resultMarkup = <p>Pokemon not found, please try again</p>;
     } else if (this.state.pokemon) {
       resultMarkup = (
         <div>
-          <img src={pokemon.imageUrl} alt="pokemon" className="pokemon-image"></img>
+          <img
+            src={pokemon.imageUrl}
+            alt="pokemon"
+            className="pokemon-image"
+          ></img>
           <p>
-            {pokemon.name} has {pokemon.numberOfAbilities} abilities and {pokemon.baseExperience} base
-            experience points.
+            {pokemon.name} has {pokemon.numberOfAbilities} abilities and{" "}
+            {pokemon.baseExperience} base experience points.
           </p>
         </div>
       );
@@ -62,11 +60,6 @@ export class PokemonSearch extends Component<User, SearchState> {
 
     return (
       <div>
-        <p>
-          User {userName}
-          {numberOfPokemons && <span>has {numberOfPokemons} pokemons.</span>}
-        </p>
-
         <input type="text" ref={this.pokemonRef} />
         <button onClick={this.onSearchClick} className="my-button">
           Search
