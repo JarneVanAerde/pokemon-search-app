@@ -1,12 +1,19 @@
 import React, { Component, ReactElement } from "react";
 import { SearchState } from "../models/SearchState.interface";
 import PokemonResult from "./PokemonResult";
+import { Inject } from "react.di";
+import { PokemonService } from "../services/PokemonService";
 
 /**
  * This component is used to handle the search functionality of the application.
  */
 export class PokemonSearch extends Component<{}, SearchState> {
-  
+  /**
+   * Injects an instance of the PokemonService into this component.
+   */
+  @Inject
+  pokemonService: PokemonService;
+
   /**
    * The reference to the input field used for the search.
    * This is an uncontrolled way of handeling the input event.
@@ -22,8 +29,8 @@ export class PokemonSearch extends Component<{}, SearchState> {
   /**
    * Renders the component.
    */
-  public render() {
-
+  public render(): ReactElement {
+    
     // Determine the markup for rendering.
     const resultMarkup = this.determineMarkup();
 
@@ -46,7 +53,6 @@ export class PokemonSearch extends Component<{}, SearchState> {
    * @returns The corresponding HTML based on the component state.
    */
   private determineMarkup(): ReactElement {
-
     // Deconstruct the state of this component.
     const { error, pokemon } = this.state;
 
@@ -70,24 +76,13 @@ export class PokemonSearch extends Component<{}, SearchState> {
     const inputValue = this.pokemonRef.current.value;
 
     // Call the API.
-    fetch(`https://pokeapi.co/api/v2/pokemon/${inputValue}/`).then(result => {
-      if (result.status !== 200) {
-        this.setState({ error: true });
-        return;
-      }
+    this.pokemonService.getPokemon(inputValue)
 
-      result.json().then(data => {
-        this.setState({
-          error: false,
-          pokemon: {
-            name: data.name,
-            numberOfAbilities: data.abilities.length,
-            baseExperience: data.base_experience,
-            imageUrl: data.sprites.front_default
-          }
-        });
-      });
-    });
+      // Set the component state to the requested pokemon.
+      .then(pokemon => this.setState({ error: false, pokemon: pokemon }))
+
+      // Set the error-state to true if something went wrong.
+      .catch(() => this.setState({ error: true }));
   };
 }
 
