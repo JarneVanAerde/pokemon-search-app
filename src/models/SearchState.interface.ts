@@ -13,6 +13,11 @@ export interface SearchState {
     error: boolean;
 
     /**
+     * True if the data is beign fetched from the API.
+     */
+    fetching: boolean;
+
+    /**
      * The search result.
      */
     pokemon: Pokemon;

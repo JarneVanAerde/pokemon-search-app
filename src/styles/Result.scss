@@ -1,0 +1,19 @@
+.result-container {
+  margin-top: 16px;
+  display: flex;
+
+  .result-image {
+    margin-right: 16px;
+    background-color: lightgrey;
+    border-radius: 0.25rem;
+  }
+
+  .result-information {
+    display: flex;
+    flex-direction: column;
+
+    span {
+      margin-bottom: 4px;
+    }
+  }
+}
